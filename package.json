@@ -4,7 +4,7 @@
   "description": "A functional Javascript Library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/robBowes/Rigid-JS/issues"
   },
-  "homepage": "https://github.com/robBowes/Rigid-JS#readme"
+  "homepage": "https://github.com/robBowes/Rigid-JS#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
 }
