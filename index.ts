@@ -1,6 +1,8 @@
 
 
 
+const pluck = (arr: any[], str: string) => arr.map(el=>el[str]);
+
 /**
  * Returns all exept the last in a collection
  *
@@ -74,6 +76,7 @@ const existy = (x: any) : boolean => x != null;
 
 
 export = {
+    pluck,
     concatAndMap,
     concat,
     complement,

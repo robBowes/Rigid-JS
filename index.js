@@ -1,4 +1,10 @@
 "use strict";
+const pluck = (arr, str) => arr.map(el => el[str]);
+/**
+ * Returns all exept the last in a collection
+ *
+ * @param {any[]} arr
+ */
 const butLast = (arr) => [...arr].slice(0, -1);
 /**
  * Maps a function
@@ -54,6 +60,7 @@ const truthy = (x) => (x != false) && existy(x);
  */
 const existy = (x) => x != null;
 module.exports = {
+    pluck,
     concatAndMap,
     concat,
     complement,

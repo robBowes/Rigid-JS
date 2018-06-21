@@ -114,3 +114,26 @@ describe('mapAndConcat', ()=>{
     });
 });
 
+describe('pluck', ()=>{
+    it('returns an array', () =>{
+        const coll = [{title: 'Chthon', author: 'Anthony'},
+            {title: 'Grendel', author: 'Gardner'},
+            {title: 'After Dark'}];
+        const key = 'author';
+
+        const result = R.pluck(coll, key);
+
+        assert.isArray(result);
+    });
+    it('returns an array of authors', () =>{
+        const coll = [{title: 'Chthon', author: 'Anthony'},
+            {title: 'Grendel', author: 'Gardner'},
+            {title: 'After Dark'}];
+        const key = 'author';
+        const expected = ['Anthony', 'Gardner', undefined];
+
+        const result = R.pluck(coll, key);
+
+        assert.sameOrderedMembers(result, expected);
+    });
+});
