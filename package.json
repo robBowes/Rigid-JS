@@ -1,0 +1,19 @@
+{
+  "name": "rigid-js",
+  "version": "1.0.0",
+  "description": "A functional Javascript Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robBowes/Rigid-JS.git"
+  },
+  "author": "Robert Bowes <r.e.bowes@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robBowes/Rigid-JS/issues"
+  },
+  "homepage": "https://github.com/robBowes/Rigid-JS#readme"
+}
