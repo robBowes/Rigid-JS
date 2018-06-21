@@ -1,4 +1,14 @@
 /**
+ * Returns the opposite of a predicate
+ * 
+ * @param predicate 
+ * @returns {Function}
+ * @param {any[]} args
+ */
+
+const complement = (predicate: Function)  => (arg: any) : boolean => !predicate(arg) 
+
+/**
  * Executes a method if it exists
  *
  * @param {*} target
@@ -8,7 +18,13 @@ const executeIfHasField = (target: any, name: string) => doWhen(
     existy(target[name]), target[name]
 )
 
-
+/**
+ * Excecutes a function if the condition is true
+ *
+ * @param {*} condition
+ * @param {Function} action
+ * 
+ */
 const doWhen = (condition: any, action: Function) => {
     if (truthy(condition)) return action();
     else return undefined;
@@ -31,6 +47,7 @@ const existy = (x: any) : boolean => x != null;
 
 
 export = {
+    complement,
     executeIfHasField,
     existy,
     truthy,

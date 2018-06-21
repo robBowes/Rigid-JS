@@ -49,4 +49,21 @@ describe('executeIfHasField', ()=>{
     });
 });
 
+describe('complement', ()=>{
+    it('returns false when given true predicate', ()=>{
+        const stringIsValue = (str) => str ==='value';
 
+        const value = 'value';
+
+        assert.isFalse(R.complement(stringIsValue)(value));
+    });
+    it('returns true when given a false predicate', ()=>{
+        const predicate = Number.isInteger;
+        const value = 'value';  
+
+        const notInteger = R.complement(predicate);
+        const result = notInteger(value);
+
+        assert.isTrue(result);
+    });
+});
