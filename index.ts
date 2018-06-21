@@ -1,3 +1,30 @@
+
+
+
+/**
+ * Returns all exept the last in a collection
+ *
+ * @param {any[]} arr
+ */
+const butLast = (arr : any[]) => [...arr].slice(0, -1);
+
+
+/**
+ * Maps a function 
+ *
+ * @param {(a:any) => any} f
+ * @param {any[]} coll
+ */
+const concatAndMap = (f: (a:any) => any , coll: any[]) => concat(...coll.map(f))
+
+
+/**
+ * Concatinates it's arguments into an array
+ *
+ * @param {...any[]} args
+ */
+const concat = (...args: any[]) => args.reduce((acc,el)=>acc.concat(el),[]);
+
 /**
  * Returns the opposite of a predicate
  * 
@@ -6,7 +33,7 @@
  * @param {any[]} args
  */
 
-const complement = (predicate: Function)  => (arg: any) : boolean => !predicate(arg) 
+const complement = (predicate: (arg: any) => boolean)  => (arg: any) => !predicate(arg);
 
 /**
  * Executes a method if it exists
@@ -47,6 +74,8 @@ const existy = (x: any) : boolean => x != null;
 
 
 export = {
+    concatAndMap,
+    concat,
     complement,
     executeIfHasField,
     existy,

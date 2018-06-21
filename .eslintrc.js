@@ -3,7 +3,7 @@ module.exports = {
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended", "google"],
     "parserOptions": {
         "sourceType": "module"
     },
@@ -23,6 +23,7 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "curly": ["error", "multi-or-nest"],
     }
 };

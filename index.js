@@ -1,4 +1,18 @@
-'use strict';
+"use strict";
+const butLast = (arr) => [...arr].slice(0, -1);
+/**
+ * Maps a function
+ *
+ * @param {(a:any) => any} f
+ * @param {any[]} coll
+ */
+const concatAndMap = (f, coll) => concat(...coll.map(f));
+/**
+ * Concatinates it's arguments into an array
+ *
+ * @param {...any[]} args
+ */
+const concat = (...args) => args.reduce((acc, el) => acc.concat(el), []);
 /**
  * Returns the opposite of a predicate
  *
@@ -40,6 +54,8 @@ const truthy = (x) => (x != false) && existy(x);
  */
 const existy = (x) => x != null;
 module.exports = {
+    concatAndMap,
+    concat,
     complement,
     executeIfHasField,
     existy,

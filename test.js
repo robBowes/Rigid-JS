@@ -15,7 +15,7 @@ describe('existy', ()=>{
 });
 
 describe('truthy', ()=>{
-    it('returns false for value 0',() =>{
+    it('returns false for value 0', () =>{
         assert.isFalse(R.truthy(0));
     });
     it('returns true for value 1', ()=>{
@@ -27,7 +27,7 @@ describe('doWhen', ()=>{
     it('returns a value when given a truthy condition', ()=>{
         assert.equal(R.doWhen(true, ()=>1), 1);
     });
-    it('returns undefined when givend false condition' , ()=>{
+    it('returns undefined when givend false condition', ()=>{
         assert.isUndefined(R.doWhen(false, ()=>1));
     });
 });
@@ -59,7 +59,7 @@ describe('complement', ()=>{
     });
     it('returns true when given a false predicate', ()=>{
         const predicate = Number.isInteger;
-        const value = 'value';  
+        const value = 'value';
 
         const notInteger = R.complement(predicate);
         const result = notInteger(value);
@@ -67,3 +67,50 @@ describe('complement', ()=>{
         assert.isTrue(result);
     });
 });
+
+describe('concat', ()=>{
+    it('makes an array', ()=>{
+        const arg1 = [1];
+        const arg2 = [2];
+
+        const result = R.concat(arg1, arg2);
+
+        assert.isArray(result);
+    });
+    it('puts the numbers in the correct order', ()=>{
+        const arg1 = [1];
+        const arg2 = [2];
+
+        const result = R.concat(arg1, arg2);
+
+        assert.isTrue(result[0]===arg1[0],
+            'the head of the array is equal to the first ' +
+            'element in the first argument array');
+    });
+    it('returns an empty array when given no arguments', ()=>{
+        const result = R.concat();
+
+        assert.isEmpty(result);
+    });
+});
+
+describe('mapAndConcat', ()=>{
+    it('returns an array', ()=>{
+        const f = (el) => [''];
+        const coll = [[1], [2], [3]];
+
+        const result = R.concatAndMap(f, coll);
+
+        assert.isArray(result);
+    });
+    it('returns a correct array', ()=>{
+        const f = (el) => [''];
+        const coll = [[1], [2], [3]];
+        const expected = ['', '', ''];
+
+        const result = R.concatAndMap(f, coll);
+
+        assert.sameOrderedMembers(result, expected);
+    });
+});
+
